@@ -30,7 +30,8 @@ SOURCES += \
     Shape.cpp \
     Line.cpp \
     Rect.cpp \
-    MainPaintScene.cpp
+    MainPaintScene.cpp \
+    PaintView.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -38,7 +39,8 @@ HEADERS += \
     Shape.h \
     Line.h \
     Rect.h \
-    MainPaintScenee.h
+    MainPaintScenee.h \
+    PaintView.h
 
 FORMS += \
         mainwindow.ui \

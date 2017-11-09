@@ -9,11 +9,11 @@
 #ifndef UI_MAINWINDOW_H
 #define UI_MAINWINDOW_H
 
+#include <PaintView.h>
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
@@ -39,7 +39,7 @@ public:
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
     QGridLayout *gridLayout;
-    QGraphicsView *graphicsView;
+    PaintView *graphicsView;
     QWidget *widget_2;
     QHBoxLayout *horizontalLayout;
     QPushButton *pushButton_7;
@@ -83,7 +83,7 @@ public:
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        graphicsView = new QGraphicsView(scrollAreaWidgetContents);
+        graphicsView = new PaintView(scrollAreaWidgetContents);
         graphicsView->setObjectName(QStringLiteral("graphicsView"));
 
         gridLayout->addWidget(graphicsView, 0, 0, 1, 1);

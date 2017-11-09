@@ -21,6 +21,8 @@ private:
     MainPaintScene * _mainPaintScene ;
     //设置背景图
     void setBackGroundImage(QString path);
+
+
 signals:
     void changeCurrentShape(Shape::Code);
     void saveScreen();

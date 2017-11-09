@@ -6,7 +6,9 @@ INPUT(
 ./debug\Line.o
 ./debug\Rect.o
 ./debug\MainPaintScene.o
+./debug\PaintView.o
 ./debug\moc_mainwindow.o
 ./debug\moc_PaintWidget.o
 ./debug\moc_MainPaintScenee.o
+./debug\moc_PaintView.o
 );

@@ -7,7 +7,6 @@ MainPaintScene::MainPaintScene(QWidget *parent) :
     this->setBackgroundBrush(Qt::gray);
 
 
-    this->addRect(0,0,width(),height(),QPen(Qt::green),QBrush(Qt::red));
 
 
     QGraphicsTextItem* _textItem =new QGraphicsTextItem(QString::fromUtf8("是的 我可以"));
@@ -23,8 +22,16 @@ MainPaintScene::~MainPaintScene()
 {
 
 }
+void MainPaintScene::InsertPicture(QString path)
+{
+    QPixmap pixmap =QPixmap::fromImage(QImage(path));
+    QGraphicsPixmapItem* pictureItem= this->addPixmap(pixmap);
+     pictureItem->setFlag(QGraphicsItem::ItemIsMovable);
+}
 void MainPaintScene::SetBackGroundImage(QString path)
 {
+    this->addRect(0,0,width(),height(),QPen(Qt::green),QBrush(Qt::red));
+
     QPixmap pixmap =QPixmap::fromImage(QImage(path));
     QGraphicsPixmapItem* _backGroundItem= this->addPixmap(pixmap);
 
@@ -38,6 +45,7 @@ void MainPaintScene::SetBackGroundImage(QString path)
         _backGroundItem->setScale( height()/pixmap.height());
     }
     _backGroundItem->setPos(0,0);
+
     //_backGroundItem->setRotation(-45);//绕圆心逆时针旋转
 
 }

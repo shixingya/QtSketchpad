@@ -6,7 +6,9 @@ INPUT(
 ./release\Line.o
 ./release\Rect.o
 ./release\MainPaintScene.o
+./release\PaintView.o
 ./release\moc_mainwindow.o
 ./release\moc_PaintWidget.o
 ./release\moc_MainPaintScenee.o
+./release\moc_PaintView.o
 );

@@ -11,7 +11,7 @@ public:
     explicit MainPaintScene(QWidget *parent = 0);
     ~MainPaintScene();
 
-
+    void InsertPicture(QString path);
     void SetBackGroundImage(QString path);
 private:
 

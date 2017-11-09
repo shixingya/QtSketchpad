@@ -9,9 +9,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     resize(1200,650);
-    ui->graphicsView->resize(800,500);
+    ui->graphicsView->resize(1000,200);
     _mainPaintScene =new MainPaintScene(ui->graphicsView);
-    _mainPaintScene->setSceneRect(0,0,ui->graphicsView->width(),ui->graphicsView->height());
+
     ui->graphicsView->setScene(_mainPaintScene);
     ui->graphicsView->centerOn(0,0);
     setBackGroundImage("D:/2008.png");
@@ -34,11 +34,6 @@ MainWindow::MainWindow(QWidget *parent) :
     //    drawRectAction->setCheckable(true);
     //    group->addAction(drawRectAction);
     //    bar->addAction(drawRectAction);
-
-    //    QAction *saveScreen = new QAction("saveScreen", bar);
-    //    saveScreen->setCheckable(true);
-    //    group->addAction(saveScreen);
-    //    bar->addAction(saveScreen);
 
 
     //    QLabel *statusMsg = new QLabel;
@@ -74,7 +69,9 @@ void MainWindow::on_pushButton_clicked()
 //插入图片
 void MainWindow::on_pushButton_2_clicked()
 {
-
+    QString fileName = QFileDialog::getOpenFileName(this,tr("Open Image"),
+                                                    ".",tr("Image Files (*.png *.jpg *.bmp)"));
+    _mainPaintScene->InsertPicture(fileName);
 }
 
 //组合图片
@@ -93,10 +90,11 @@ void MainWindow::on_pushButton_6_clicked()
 //保存绘制
 void MainWindow::on_pushButton_4_clicked()
 {
+    _mainPaintScene->setSceneRect(0,0,ui->graphicsView->width(),ui->graphicsView->height());
     QString path = "D:/5566.png";
     QImage image(QSize(_mainPaintScene->width(),_mainPaintScene->height()),QImage::Format_RGB32);
     QPainter painter(&image);
-    _mainPaintScene-> render(&painter);
+    ui->graphicsView-> render(&painter);
     bool OK=  image.save(path);
     if (!OK)
     {
