@@ -1,0 +1,12 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\PaintWidget.o
+./release\Shape.o
+./release\Line.o
+./release\Rect.o
+./release\MainPaintScene.o
+./release\moc_mainwindow.o
+./release\moc_PaintWidget.o
+./release\moc_MainPaintScenee.o
+);

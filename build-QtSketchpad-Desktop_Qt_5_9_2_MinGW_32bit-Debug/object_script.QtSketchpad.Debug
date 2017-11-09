@@ -1,0 +1,12 @@
+INPUT(
+./debug\main.o
+./debug\mainwindow.o
+./debug\PaintWidget.o
+./debug\Shape.o
+./debug\Line.o
+./debug\Rect.o
+./debug\MainPaintScene.o
+./debug\moc_mainwindow.o
+./debug\moc_PaintWidget.o
+./debug\moc_MainPaintScenee.o
+);
