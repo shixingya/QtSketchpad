@@ -1,7 +1,8 @@
 ﻿#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 #include "QtWidgets"
-#include <QMainWindow>
+#include <QApplication>
+#include <QFileDialog>
 #include "Shape.h"
 #include "MainPaintScenee.h"
 namespace Ui {

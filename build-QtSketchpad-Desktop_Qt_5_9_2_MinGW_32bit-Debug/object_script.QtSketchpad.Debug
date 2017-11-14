@@ -7,6 +7,10 @@ INPUT(
 ./debug\Rect.o
 ./debug\MainPaintScene.o
 ./debug\PaintView.o
+./debug\Image.o
+./debug\PenPath.o
+./debug\Text.o
+./debug\qrc_qrc.o
 ./debug\moc_mainwindow.o
 ./debug\moc_PaintWidget.o
 ./debug\moc_MainPaintScenee.o

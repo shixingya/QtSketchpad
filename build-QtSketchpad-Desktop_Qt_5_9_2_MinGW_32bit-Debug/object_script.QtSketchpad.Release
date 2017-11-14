@@ -7,6 +7,10 @@ INPUT(
 ./release\Rect.o
 ./release\MainPaintScene.o
 ./release\PaintView.o
+./release\Image.o
+./release\PenPath.o
+./release\Text.o
+./release\qrc_qrc.o
 ./release\moc_mainwindow.o
 ./release\moc_PaintWidget.o
 ./release\moc_MainPaintScenee.o

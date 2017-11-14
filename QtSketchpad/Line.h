@@ -7,10 +7,19 @@
 class Line : public Shape, public QGraphicsLineItem
 {
 public:
-        Line();
+    Line();
+    ~Line()
+    {
 
-        void startDraw(QGraphicsSceneMouseEvent * event);
-        void drawing(QGraphicsSceneMouseEvent * event);
+    }
+
+    QPointF startPos;
+    QPointF EndPos;
+    void startDraw(QGraphicsSceneMouseEvent * event);
+    void drawing(QGraphicsSceneMouseEvent * event);
+    void endDraw(QGraphicsSceneMouseEvent * event);
+    bool CheckIsContainsPoint(QPointF);
+    void setAdjustFlag(bool);
 };
 
 #endif // LINE_H

@@ -4,17 +4,30 @@ Line::Line()
 {
     setFlag(QGraphicsItem::ItemIsMovable, true);
     setFlag(QGraphicsItem::ItemIsSelectable, true);
-    setFlag(QGraphicsItem::ItemIsSelectable, true);
 }
 
 void Line::startDraw(QGraphicsSceneMouseEvent * event)
 {
-        setLine(QLineF(event->scenePos(), event->scenePos()));
+    startPos=event->scenePos();
 }
 
 void Line::drawing(QGraphicsSceneMouseEvent * event)
 {
-        QLineF newLine(line().p1(), event->scenePos());
-        setLine(newLine);
+    EndPos=event->scenePos();
+    QLineF newLine(startPos,EndPos);
+    setLine(newLine);
 
+}
+void Line::endDraw(QGraphicsSceneMouseEvent *event)
+{
+
+}
+bool Line::CheckIsContainsPoint(QPointF p)
+{
+    return shape().contains(p);
+}
+void Line::setAdjustFlag(bool val)
+{
+   setFlag(QGraphicsItem::ItemIsMovable, val);
+   setFlag(QGraphicsItem::ItemIsSelectable, val);
 }

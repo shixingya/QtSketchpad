@@ -31,7 +31,10 @@ SOURCES += \
     Line.cpp \
     Rect.cpp \
     MainPaintScene.cpp \
-    PaintView.cpp
+    PaintView.cpp \
+    Image.cpp \
+    PenPath.cpp \
+    Text.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -40,11 +43,17 @@ HEADERS += \
     Line.h \
     Rect.h \
     MainPaintScenee.h \
-    PaintView.h
+    PaintView.h \
+    Image.h \
+    PenPath.h \
+    Text.h
 
 FORMS += \
         mainwindow.ui \
     PaintWidget.ui \
-    Shape.ui \
-    Line.ui \
-    Rect.ui
+    Shape.ui
+
+RESOURCES += \
+    qrc.qrc
+
+

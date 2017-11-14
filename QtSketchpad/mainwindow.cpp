@@ -9,12 +9,12 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     resize(1200,650);
-    ui->graphicsView->resize(1000,200);
+
     _mainPaintScene =new MainPaintScene(ui->graphicsView);
 
     ui->graphicsView->setScene(_mainPaintScene);
     ui->graphicsView->centerOn(0,0);
-    setBackGroundImage("D:/2008.png");
+    _mainPaintScene->SetBackGroundImage("D:/2008.png");
     //    QToolBar *bar = this->addToolBar("Tools");
     //    QActionGroup *group = new QActionGroup(bar);
 
@@ -49,8 +49,8 @@ MainWindow::MainWindow(QWidget *parent) :
     //            this, SLOT(drawLineActionTriggered()));
     //    connect(drawRectAction, SIGNAL(triggered()),
     //            this, SLOT(drawRectActionTriggered()));
-    //    connect(this, SIGNAL(changeCurrentShape(Shape::Code)),
-    //            paintWidget, SLOT(setCurrentShape(Shape::Code)));
+         connect(this, SIGNAL(changeCurrentShape(Shape::Code)),
+               _mainPaintScene, SLOT(setCurrentShape(Shape::Code)));
     //    connect(saveScreen, SIGNAL(triggered()),
     //            paintWidget, SLOT(onSaveScreen()));
 }
@@ -69,9 +69,11 @@ void MainWindow::on_pushButton_clicked()
 //插入图片
 void MainWindow::on_pushButton_2_clicked()
 {
-    QString fileName = QFileDialog::getOpenFileName(this,tr("Open Image"),
-                                                    ".",tr("Image Files (*.png *.jpg *.bmp)"));
-    _mainPaintScene->InsertPicture(fileName);
+    // QString fileName = QFileDialog::getOpenFileName(nullptr,tr("Open Image"),
+    //                                                ".",tr("Image Files (*.png *.jpg *.bmp)"));
+    //_mainPaintScene->InsertPicture(":/ico/12121.png");//fileName);
+     emit changeCurrentShape(Shape::Text);
+   // setCursor(QPixmap("d:/error01.png"));
 }
 
 //组合图片
@@ -79,6 +81,7 @@ void MainWindow::on_pushButton_3_clicked()
 {
 
 }
+
 
 
 //插入文字
@@ -109,23 +112,26 @@ void MainWindow::on_pushButton_4_clicked()
 //更换底图
 void MainWindow::on_pushButton_5_clicked()
 {
-    _mainPaintScene->clear();
+    QObject *obj=sender();
+    qDebug()<<"obj.objectName()="<<obj->objectName();
+
     QString fileName = QFileDialog::getOpenFileName(this,tr("Open Image"),
                                                     ".",tr("Image Files (*.png *.jpg *.bmp)"));
-
-    _mainPaintScene->SetBackGroundImage(fileName);
+    QFile file(fileName);
+    if(file.exists())
+        _mainPaintScene->SetBackGroundImage(fileName);
 }
 
 //场景放大
 void MainWindow::on_pushButton_7_clicked()
 {
-    //_mainPaintScene->set
+    ui->graphicsView->ZoomIn();
 }
 
 //场景缩小
 void MainWindow::on_pushButton_8_clicked()
 {
-
+    ui->graphicsView->ZoomOut();
 }
 
 //图片30度顺时针旋转
